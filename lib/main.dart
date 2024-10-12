@@ -11,6 +11,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await loadConfig();
   registerHTTPService();
+  await GetIt.instance.get<HTTPService>().get(
+      'coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
   runApp(const MyApp());
 }
 
@@ -19,7 +21,6 @@ Future<void> loadConfig() async {
       await rootBundle.loadString('assets/config/main.json');
 
   Map _configData = jsonDecode(_configContent);
-  print(_configData);
   GetIt.instance.registerSingleton<AppConfig>(
     AppConfig(
       COIN_API_BASE_URL: _configData['COIN_API_BASE_URL'],
