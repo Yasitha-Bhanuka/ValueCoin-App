@@ -1,0 +1,3 @@
+{
+  "COIN_API_BASE_URI": "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&x_cg_demo_api_key=CG-wAFmioHcrkxK6R8AYheRqBrE2"
+}
