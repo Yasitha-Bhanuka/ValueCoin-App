@@ -16,8 +16,6 @@ class HTTPService {
 
   Future<Response?> get(String _path) async {
     try {
-      // https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false
-      // https://api.coingecko.com/api/v3/
       String _url = '$_base_url$_path';
       print('HTTPService GET: $_url');
       Response _response = await dio.get(_url);

@@ -80,11 +80,16 @@ class _HomePageState extends State<HomePage> {
       builder: (_context, AsyncSnapshot _snapshot) {
         if (_snapshot.hasData) {
           Map _data = jsonDecode(_snapshot.data.toString());
+          print("Data value is : $_data");
           num _usdPrice = _data['market_data']['current_price']['usd'];
-          return Text(
-            '\$$_usdPrice',
-            style: const TextStyle(
-                color: Colors.white, fontSize: 40, fontWeight: FontWeight.w600),
+          print("_usdPrice value :  $_usdPrice");
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _currentPriceWidget(_usdPrice),
+            ],
           );
         } else {
           return const CircularProgressIndicator(
@@ -92,6 +97,14 @@ class _HomePageState extends State<HomePage> {
           );
         }
       },
+    );
+  }
+
+  Widget _currentPriceWidget(num _rate) {
+    return Text(
+      "\$${_rate.toStringAsFixed(2)} USD",
+      style: const TextStyle(
+          color: Colors.white, fontSize: 30, fontWeight: FontWeight.w300),
     );
   }
 }
