@@ -98,7 +98,8 @@ class _HomePageState extends State<HomePage> {
               _data['market_data']['price_change_percentage_24h'];
           String _imgURL = _data['image']['large'];
           String _description = _data['description']['en'];
-          print("_usdPrice value :  $_usdPrice");
+          Map _exchangeRates = _data['market_data']['current_price'];
+          print(_exchangeRates);
           return Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
@@ -108,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                   onDoubleTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (BuildContext _context) {
-                      return const DetailsPage();
+                      return DetailsPage(rates: _exchangeRates);
                     }));
                   },
                   child: _coinImageWidget(_imgURL)),
