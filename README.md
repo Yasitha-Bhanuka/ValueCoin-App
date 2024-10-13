@@ -1,4 +1,4 @@
-# valuecoin
+# ValueCoin
 
 A new Flutter project focused on providing real-time cryptocurrency data and interactive features.
 
@@ -29,7 +29,14 @@ A new Flutter project focused on providing real-time cryptocurrency data and int
 
 ## Demo
 
-![Demo Video](path_to_demo_video)
+1) Open the app ✔
+2) See the dropdown list ✔
+3) Select the coin and check the details ✔
+4) Double tap coin image and navigate into the exchange rate page ✔
+   
+
+
+https://github.com/user-attachments/assets/49eea6c4-0564-407c-9755-f1e6551f85a6
 
 ## Getting Started
 
