@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:valuecoin/pages/details_page.dart';
 import 'package:valuecoin/services/http_services.dart';
 
 class HomePage extends StatefulWidget {
@@ -92,7 +93,14 @@ class _HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _coinImageWidget(_imgURL),
+              GestureDetector(
+                  onDoubleTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext _context) {
+                      return const DetailsPage();
+                    }));
+                  },
+                  child: _coinImageWidget(_imgURL)),
               _currentPriceWidget(_usdPrice),
               _percentageChangeWidget(_percentageChange),
               _descriptionCardWidget(_description),
