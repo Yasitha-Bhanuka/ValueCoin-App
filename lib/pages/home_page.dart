@@ -160,12 +160,12 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: EdgeInsets.symmetric(vertical: _deviceHeight! * 0.05),
       padding: EdgeInsets.symmetric(
-          vertical: _deviceHeight! * 0.01, horizontal: _deviceWidth! * 0.01),
+          vertical: _deviceHeight! * 0.01, horizontal: _deviceWidth! * 0.03),
       height: _deviceHeight! * 0.45,
       width: _deviceWidth! * 0.95,
       decoration: BoxDecoration(
         color: const Color.fromRGBO(83, 88, 206, 1.0),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Text(
         _description,
