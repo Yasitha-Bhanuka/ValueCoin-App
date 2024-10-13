@@ -24,6 +24,7 @@ class HTTPService {
     } catch (e) {
       print('Unable to perform GET request');
       print('HTTPService Error: $e');
+      return null;
     }
   }
 }
