@@ -82,6 +82,8 @@ class _HomePageState extends State<HomePage> {
           Map _data = jsonDecode(_snapshot.data.toString());
           print("Data value is : $_data");
           num _usdPrice = _data['market_data']['current_price']['usd'];
+          num _percentageChange =
+              _data['market_data']['price_change_percentage_24h'];
           print("_usdPrice value :  $_usdPrice");
           return Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,6 +91,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _currentPriceWidget(_usdPrice),
+              _percentageChangeWidget(_percentageChange),
             ],
           );
         } else {
@@ -102,7 +105,15 @@ class _HomePageState extends State<HomePage> {
 
   Widget _currentPriceWidget(num _rate) {
     return Text(
-      "\$${_rate.toStringAsFixed(2)} USD",
+      "${_rate.toStringAsFixed(2)} USD",
+      style: const TextStyle(
+          color: Colors.white, fontSize: 30, fontWeight: FontWeight.w400),
+    );
+  }
+
+  Widget _percentageChangeWidget(num _percentage) {
+    return Text(
+      "${_percentage.toStringAsFixed(2)} %",
       style: const TextStyle(
           color: Colors.white, fontSize: 30, fontWeight: FontWeight.w300),
     );
