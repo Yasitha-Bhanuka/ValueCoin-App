@@ -84,12 +84,14 @@ class _HomePageState extends State<HomePage> {
           num _usdPrice = _data['market_data']['current_price']['usd'];
           num _percentageChange =
               _data['market_data']['price_change_percentage_24h'];
+          String _imgURL = _data['image']['large'];
           print("_usdPrice value :  $_usdPrice");
           return Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              _coinImageWidget(_imgURL),
               _currentPriceWidget(_usdPrice),
               _percentageChangeWidget(_percentageChange),
             ],
@@ -116,6 +118,19 @@ class _HomePageState extends State<HomePage> {
       "${_percentage.toStringAsFixed(2)} %",
       style: const TextStyle(
           color: Colors.white, fontSize: 30, fontWeight: FontWeight.w300),
+    );
+  }
+
+  Widget _coinImageWidget(String _imgURL) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: _deviceHeight! * 0.02),
+      height: _deviceHeight! * 0.15,
+      width: _deviceWidth! * 0.15,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(_imgURL),
+        ),
+      ),
     );
   }
 }
